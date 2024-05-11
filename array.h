@@ -12,6 +12,4 @@ void printArray(int *array);
 int findMaximumValue(int *array);
 int findMiniumValue(int *array);
 float calculateAverage(int *array);
-void saveValue(int array[]);
-void openValues(int array[]);
 #endif //UNTITLED1_ARRAY_H

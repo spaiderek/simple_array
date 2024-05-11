@@ -5,17 +5,17 @@
 #include "array.h"
 #include <stdlib.h>
 FILE * fptr;
-
+using namespace std;
 void  enterValue(int *array){
-    printf("Input values to array:\n");
+    cout <<"Input values to array:" << endl;
     for (int i=0; i < SIZE; ++i) {
-        printf("*(array + %d) = ", i);
-        scanf("%d", &*(array + i));
+        cout << "*(array +" << i <<") = ";
+        cin >> *(array + i);
     }
 }
 void printArray(int *array) {
     for (int i = 0; i < SIZE; ++i) {
-        printf("*(array + %d) = %d\n",i, *(array + i));
+        cout<<"*(array + "<< i << ") = " << *(array + i) <<endl;
     }
 }
 int findMaximumValue(int *array) {
@@ -43,34 +43,4 @@ float calculateAverage(int *array){
     }
     float avg = (float)sum / SIZE;
     return avg;
-}
-void saveValue(int array[]) {
-    fptr = fopen("values.txt", "w");
-    int a;
-    if (fptr == 0) {
-        printf("ERROR\n");
-        exit(1);
-    }
-    for (int i = 0; i < SIZE; ++i) {
-        fprintf(fptr,"(array + %d) = %d ", i, array[i]);
-
-    }
-    fclose(fptr);
-
-    puts("Saved values in file.\n");
-}
-void openValues(int array[]) {
-    fptr = fopen("values.txt", "r");
-    char fileLine[100];
-    if (fptr != 0) {
-        while (!feof(fptr)) {
-            fgets(fileLine, 100, fptr);
-            if (!feof(fptr)) {
-                puts(fileLine);
-            }
-        }
-    } else {
-        printf("\nERROR\n");
-    }
-    fclose(fptr);
 }

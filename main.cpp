@@ -2,18 +2,16 @@
 #define SIZE 10
 #include "array.h"
 #include <stdlib.h>
-
+using namespace std;
 
 void menu(void){
-    printf("1. Enter the values into the array\n");
-    printf("2. Display the content of the array\n");
-    printf("3. Determine the maximum value\n");
-    printf("4. Determine the minimum value\n");
-    printf("5. Determine the average value\n");
-    printf("6. Enter the values into file\n");
-    printf("7. Display the content of the file\n");
-    printf("0. EXIT\n");
-    printf("Select an option:\n");
+    cout <<"1. Enter the values into the array" <<endl;
+    cout <<"2. Display the content of the array" <<endl;
+    cout <<"3. Determine the maximum value" <<endl;
+    cout <<"4. Determine the minimum value" <<endl;
+    cout <<"5. Determine the average value" <<endl;
+    cout <<"0. EXIT" <<endl;
+    cout <<"Select an option:" <<endl;
 }
 
 
@@ -31,50 +29,40 @@ int main() {
 
     do{
         menu();
-        scanf("%d",&option);
+        cin >> option;
         switch (option){
             case 0:
                 break;
             case 1:
-                printf("1. Enter the values into the array\n\n");
+                cout <<"1. Enter the values into the array" <<endl;
                 enterValue(array);
                 break;
             case 2:
-                printf("2. Display the content of the array\n\n");
-                char fileLine[100];
+                cout <<"2. Display the content of the array" <<endl;
+                printArray(array);
                 break;
             case 3:
-                printf("3. Determine the maximum value\n");
+                cout <<"3. Determine the maximum value" <<endl;
                 max = findMaximumValue(array);
-                printf("%d\n\n",max);
+                cout <<max <<endl;
                 break;
             case 4:
-                printf("4. Determine the minimum value\n");
+                cout <<"4. Determine the minimum value" <<endl;
                 min = findMiniumValue(array);
-                printf("%d\n\n",min);
+                cout <<min <<endl;
                 break;
             case 5:
-                printf("5. Determine the average value\n");
+                cout <<"5. Determine the average value" <<endl;
                 avg = calculateAverage(array);
-                printf("%f\n\n",avg);
-                break;
-            case 6:
-                printf("6. Enter the values into file\n");
-                saveValue(array);
-
-                break;
-            case 7:
-                printf("7. Display the content of the file\n");
-                openValues(array);
-
+                cout <<avg <<endl;
                 break;
             default:
-                printf("choose the right option");
+                cout <<"choose the right option" <<endl;
 
         }
     }while (option !=0);
 
-    printf("The End");
+    cout <<"The End";
 
     return 0;
 }
